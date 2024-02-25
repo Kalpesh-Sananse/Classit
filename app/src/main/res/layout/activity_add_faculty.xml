@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".addFaculty">
+
+    <TextView
+        android:id="@+id/textviewappname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Classit"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_below="@id/textviewappname">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textviewappname"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:id="@+id/linear"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:text="Create Account Now!"
+                android:paddingLeft="20dp"
+                android:id="@+id/textviewwelcome"
+                android:textSize="30dp"
+                android:textColor="@color/white"
+                android:textStyle="bold">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Register as Student"
+                android:id="@+id/logintextview"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/white"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Name"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Enter your Name"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:id="@+id/facname"
+                android:inputType="textPersonName"
+                android:background="@drawable/editback"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Email"
+                android:textStyle="bold"
+
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Enter your Email"
+                android:layout_gravity="center"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:id="@+id/facemail"
+                android:background="@drawable/editback"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Phone no"
+                android:textStyle="bold"
+
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Enter your phone no"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:id="@+id/facphoneno"
+                android:background="@drawable/editback"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Register Number"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Enter Register Number"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:id="@+id/facregnumber"
+                android:background="@drawable/editback"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Password"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Enter password"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:id="@+id/facpassword"
+                android:background="@drawable/editback"/>           <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Confirm Password"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"/>
+            <EditText
+                android:layout_width="880px"
+                android:layout_height="130px"
+                android:hint="Confirm your password"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:id="@+id/facconfirmpassword"
+                android:background="@drawable/editback"/>
+            <Button
+                android:id="@+id/facregbtn"
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/buttoncolor"
+                android:padding="10dp"
+                android:text="Create Account"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp"
+        android:visibility="gone"/>
+</RelativeLayout>
