@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relativelayout"
+    android:background="@color/blue"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Classit"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textview1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="30dp"
+            android:src="@drawable/welcomepng">
+
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:text="Hello, Welcome!"
+            android:textAlignment="center"
+            android:id="@+id/textview2"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="14dp"
+            android:textColor="@color/white"
+            android:text=""
+            android:textAlignment="center"
+            android:id="@+id/textview3"
+           />
+        <Button
+            android:layout_width="700px"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginbutton"
+            android:text="Login"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:backgroundTint="@color/buttoncolor"
+            android:textColor="@color/black" />
+
+        <Button
+            android:layout_width="700px"
+            android:layout_height="wrap_content"
+            android:id="@+id/signupbutton"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:layout_margin="10sp"
+
+            android:textSize="18sp"
+            android:backgroundTint="@color/buttoncolor"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="14dp"
+            android:textColor="@color/white"
+            android:text="GHRCEM"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/textview4"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
