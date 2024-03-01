@@ -37,6 +37,8 @@ public class Register_activity extends AppCompatActivity {
 
     private static final String TAG="Register_activity";
     @SuppressLint("MissingInflatedId")
+
+    DBHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class Register_activity extends AppCompatActivity {
         regno = findViewById(R.id.regnumber);
         Button btn = findViewById(R.id.regbtn);
         progressBar = findViewById(R.id.progressbar);
-
+        db = new DBHelper(this);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,66 +126,88 @@ public class Register_activity extends AppCompatActivity {
                 else
                 {
                     progressBar.setVisibility(View.VISIBLE);
-                    registerUser(stdname, stdemail,stdphone,stdpass,regino);
+
+
+                   registerUser(stdname, stdemail,stdphone,stdpass,regino);
                 }
         }
-            private void registerUser(String stdname, String stdemail, String stdphone, String stdpass,  String regino) {
-            FirebaseAuth auth = FirebaseAuth.getInstance();
-            auth.createUserWithEmailAndPassword(stdemail,stdpass).addOnCompleteListener(Register_activity.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                         FirebaseUser firebaseUser = auth.getCurrentUser();
 
-                            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(stdname,stdphone,regino);
 
-                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Registered Users");
-                        reference.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                               if(task.isSuccessful()){
 
-                                   firebaseUser.sendEmailVerification();
-                                   Toast.makeText(Register_activity.this, "User Registered Successfully, please verify your email", Toast.LENGTH_SHORT).show();
+          public void registerUser(String stdname, String stdemail, String stdphone, String stdpass,  String regino) {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                auth.createUserWithEmailAndPassword(stdemail, stdpass).addOnCompleteListener(Register_activity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser firebaseUser = auth.getCurrentUser();
+
+                            ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(stdname, stdphone, regino);
+
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Registered Users");
+                            reference.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+
+                                        firebaseUser.sendEmailVerification();
+                                        Toast.makeText(Register_activity.this, "User Registered Successfully, please verify your email", Toast.LENGTH_SHORT).show();
                 /*
                                    Intent intent = new Intent(Register_activity.this, UserProfileActivity.class);
                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
                                    |Intent.FLAG_ACTIVITY_NEW_TASK;
                                    startActivity(intent);
                                    finish();*/
-                               }else{
-                                   Toast.makeText(Register_activity.this, "User Registered failed , please try again", Toast.LENGTH_SHORT).show();
+                                   } else {
+                                        Toast.makeText(Register_activity.this, "User Registered failed , please try again", Toast.LENGTH_SHORT).show();
 
-                               }
-                               progressBar.setVisibility(View.GONE);
+                                    }
+                                    progressBar.setVisibility(View.GONE);
 
+                                }
+                            });
+
+                            //sendverfication email
+
+                        } else {
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthWeakPasswordException e) {
+                                password.setError("your password is too weak");
+                                password.requestFocus();
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                email.setError("your email is invalid or already in use, kindly re-enter");
+                                email.requestFocus();
+                            } catch (FirebaseAuthUserCollisionException e) {
+                                email.setError("user already registered with this email.use another email");
+                                email.requestFocus();
+
+                            } catch (Exception e) {
+                                Log.e(TAG, e.getMessage());
+                                Toast.makeText(Register_activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
-                        });
-
-                        //sendverfication email
-
-                    }else{
-                        try{
-                            throw task.getException();
-                        }catch (FirebaseAuthWeakPasswordException e){
-                            password.setError("your password is too weak");
-                            password.requestFocus();
-                        }catch  (FirebaseAuthInvalidCredentialsException e){
-                            email.setError("your email is invalid or already in use, kindly re-enter");
-                            email.requestFocus();
-                        }catch(FirebaseAuthUserCollisionException e){
-                            email.setError("user already registered with this email.use another email");
-                            email.requestFocus();
-
-                        }catch(Exception e){
-                            Log.e(TAG, e.getMessage());
-                            Toast.makeText(Register_activity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
                         }
-                        progressBar.setVisibility(View.GONE);
                     }
-                }
-            });
+                });
             }
+
     });
 }
 }
+  /* if(stdpass.equals(cnfpass)){
+                        Boolean checkuser = db.checkusername(regino);
+                        if(checkuser == false){
+                            Boolean insert  = db.insertData(stdname,stdpass,regino,stdphone,stdemail);
+                            if(insert == true){
+                                Toast.makeText(Register_activity.this, "Registration Sucessfull", Toast.LENGTH_SHORT).show();
+
+                            }else{
+                                Toast.makeText(Register_activity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(Register_activity.this, "User already exists", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(Register_activity.this, "passwords are not matching", Toast.LENGTH_SHORT).show();
+                    }*/

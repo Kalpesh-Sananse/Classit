@@ -3,6 +3,7 @@ package com.example.dept1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,6 +20,7 @@ public class loginTeacher extends AppCompatActivity {
 
 
     EditText Username, Password;
+    DBHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +29,15 @@ public class loginTeacher extends AppCompatActivity {
         Username = findViewById(R.id.Username);
         Password = findViewById(R.id.password);
         Button Tlogin = findViewById(R.id.Tloginbutton);
+        db = new DBHelper(this);
 
         Tlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String TUsername = Username.getText().toString();
-                String TPassword = Password.getText().toString();
+
+                String TUsername = Username.getText().toString().trim();
+                String TPassword = Password.getText().toString().trim();
                 if(TextUtils.isEmpty(TUsername)){
                     Toast.makeText(loginTeacher.this, "Username should not be empty", Toast.LENGTH_SHORT).show();
                     Username.setError("Username is required");
@@ -43,11 +47,22 @@ public class loginTeacher extends AppCompatActivity {
                     Password.setError("password is required");
                     Password.requestFocus();
                 }else{
-                    loginUser(TUsername,TPassword);
-                }
+                        Boolean checkusernamepass = db.checkusernamepassword(TUsername,TPassword);
+                        if(checkusernamepass == true){
+
+                            Intent intent = new Intent(loginTeacher.this,TeacherPanel.class);
+                           intent.putExtra("Username",TUsername);
+                            startActivity(intent);
+
+                            Toast.makeText(loginTeacher.this, "login successfull", Toast.LENGTH_SHORT).show();
+
+                   // loginUser(TUsername,TPassword);
+                }else {
+                            Toast.makeText(loginTeacher.this, "login failed", Toast.LENGTH_SHORT).show();
+                        }
             }
 
-            private void loginUser(String tUsername, String tPassword) {
+                /*    private void loginUser(String tUsername, String tPassword) {
 
                 FirebaseAuth authProfile = FirebaseAuth.getInstance();
                 authProfile.signInWithEmailAndPassword(tUsername,tPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -59,7 +74,7 @@ public class loginTeacher extends AppCompatActivity {
                             Toast.makeText(loginTeacher.this, "invalid credentials", Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+                });*/
             }
         });
     }

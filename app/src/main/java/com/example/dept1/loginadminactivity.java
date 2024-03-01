@@ -53,6 +53,7 @@ public class loginadminactivity extends AppCompatActivity {
 
                     if (textUsername.equals("admin") && textpass.equals("admin")) {
                         Intent intent = new Intent(loginadminactivity.this, adminpanelActivity.class);
+                        intent.putExtra("name",textUsername);
                         startActivity(intent);
                     }
 

@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 public class addFaculty extends AppCompatActivity {
 
     EditText name , email , pass, cnfpass,regno,phone;
+    DBHelper db;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -40,6 +41,8 @@ public class addFaculty extends AppCompatActivity {
         pass = findViewById(R.id.facpassword);
         cnfpass = findViewById(R.id.facconfirmpassword);
         regno = findViewById(R.id.facregnumber);
+
+        db = new DBHelper(this);
         ProgressBar progressBar = findViewById(R.id.progressbar);
 
 
@@ -48,12 +51,12 @@ public class addFaculty extends AppCompatActivity {
         facreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String facname = name.getText().toString();
-                String facphone = phone.getText().toString();
-                String facemail = email.getText().toString();
-                String facpass = pass.getText().toString();
-                String faccnfpass = cnfpass.getText().toString();
-                String facregno = regno.getText().toString();
+                String facname = name.getText().toString().trim();
+                String facphone = phone.getText().toString().trim();
+                String facemail = email.getText().toString().trim();
+                String facpass = pass.getText().toString().trim();
+                String faccnfpass = cnfpass.getText().toString().trim();
+                String facregno = regno.getText().toString().trim();
 
 
                 /*String mobileRegex =" [6-9][0-9]{9}";
@@ -63,23 +66,23 @@ public class addFaculty extends AppCompatActivity {
 
 */
 
-                if(TextUtils.isEmpty(facname)){
+                if (TextUtils.isEmpty(facname)) {
                     Toast.makeText(addFaculty.this, "pleease enter a full name", Toast.LENGTH_LONG).show();
                     name.setError("Full name is required");
                     name.requestFocus();
-                }else if(TextUtils.isEmpty(facemail)){
+                } else if (TextUtils.isEmpty(facemail)) {
                     Toast.makeText(addFaculty.this, "Please enter email", Toast.LENGTH_SHORT).show();
                     email.setError("email is required");
                     email.requestFocus();
-                }else if(!Patterns.EMAIL_ADDRESS.matcher(facemail).matches()){
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(facemail).matches()) {
                     Toast.makeText(addFaculty.this, "Please re-enter  your email", Toast.LENGTH_SHORT).show();
                     email.setError("valid email is required");
                     email.requestFocus();
-                }else if (TextUtils.isEmpty(facphone)){
+                } else if (TextUtils.isEmpty(facphone)) {
                     Toast.makeText(addFaculty.this, "Please enter your mobile number", Toast.LENGTH_SHORT).show();
                     phone.setError("phone number is required");
                     phone.requestFocus();
-                }else if(facphone.length() !=10){
+                } else if (facphone.length() != 10) {
                     Toast.makeText(addFaculty.this, "Please re-enter your mobile no.", Toast.LENGTH_SHORT).show();
                     phone.setError("Mobile number should be 10 digit");
                     phone.requestFocus();
@@ -90,39 +93,55 @@ public class addFaculty extends AppCompatActivity {
                     phone.requestFocus();
                 }*/
 
-                else if(TextUtils.isEmpty(facpass)){
+                else if (TextUtils.isEmpty(facpass)) {
                     Toast.makeText(addFaculty.this, "Please enter your password", Toast.LENGTH_SHORT).show();
                     pass.setError("password is required");
                     pass.requestFocus();
-                }else if (facpass.length() < 6){
+                } else if (facpass.length() < 6) {
                     Toast.makeText(addFaculty.this, "Password should be at least 6 digit", Toast.LENGTH_SHORT).show();
                     pass.setError("password to weak");
                     pass.requestFocus();
-                }else if(TextUtils.isEmpty(faccnfpass)){
+                } else if (TextUtils.isEmpty(faccnfpass)) {
                     Toast.makeText(addFaculty.this, "Please confirm your password", Toast.LENGTH_SHORT).show();
                     cnfpass.setError("password confirmation required");
                     cnfpass.requestFocus();
-                }else if(!facpass.equals(faccnfpass)){
+                } else if (!facpass.equals(faccnfpass)) {
                     Toast.makeText(addFaculty.this, "Please enter same password", Toast.LENGTH_SHORT).show();
-                   cnfpass.setError("password confirmation is requird");
-                   cnfpass.requestFocus();
+                    cnfpass.setError("password confirmation is requird");
+                    cnfpass.requestFocus();
 
                     //clear the entered password
                     cnfpass.clearComposingText();
                     pass.clearComposingText();
-                }else if(TextUtils.isEmpty (facregno)){
+                } else if (TextUtils.isEmpty(facregno)) {
                     Toast.makeText(addFaculty.this, "please enter registration number", Toast.LENGTH_SHORT).show();
                     regno.setError("please enter reg no");
                     regno.requestFocus();
-                }
-                else {
+                } else {
                     progressBar.setVisibility(View.VISIBLE);
-                    registerUser(facname, facemail,facphone,facpass,facregno);
+
+                    if (facpass.equals(faccnfpass)) {
+                        Boolean checkuser = db.checkusername(facregno);
+                        if (checkuser == false) {
+                            Boolean insert = db.insertData(facname, facpass, facregno, facphone, facemail);
+                            if (insert == true) {
+                                Toast.makeText(addFaculty.this, "Registration Sucessfull", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(addFaculty.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(addFaculty.this, "User already exists", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(addFaculty.this, "passwords are not matching", Toast.LENGTH_SHORT).show();
+                    }
+                    // registerUser(facname, facemail,facphone,facpass,facregno);
                 }
 
             }
 
-            private void registerUser(String facname, String facemail, String facphone, String facpass, String facregno) {
+            /*private void registerUser(String facname, String facemail, String facphone, String facpass, String facregno) {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                 ReadWriteFacDetails facwriteUserDetails = new ReadWriteFacDetails(facname,facphone,facregno,facpass);
@@ -189,8 +208,9 @@ public class addFaculty extends AppCompatActivity {
                     }
                 });
                 */
-            }
-        });
 
-    }
+        });
+}
+
+
 }
