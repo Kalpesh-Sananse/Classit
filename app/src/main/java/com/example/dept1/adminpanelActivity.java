@@ -19,7 +19,7 @@ public class adminpanelActivity extends AppCompatActivity {
 
         String name = intent.getStringExtra("name");
         CardView addfacultyCard = findViewById(R.id.addfac);
-
+        CardView facCard = findViewById(R.id.facCard);
         TextView tv = findViewById(R.id.textviewhead);
 
 
@@ -28,6 +28,13 @@ public class adminpanelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(adminpanelActivity.this, addFaculty.class);
+                startActivity(intent);
+            }
+        });
+        facCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(adminpanelActivity.this,all_faculty.class);
                 startActivity(intent);
             }
         });

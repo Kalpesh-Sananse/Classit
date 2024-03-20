@@ -3,37 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blue"
     android:layout_height="match_parent"
-    tools:context=".adminpanelActivity">
+    android:background="@color/blue"
+    tools:context=".studentPanel">
     <TextView
-        android:id="@+id/textviewhead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Classit"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/textHOD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@id/textviewhead"
-        android:text="HOD Pannel"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold">
-
-    </TextView>
+        android:text=""
+        android:id="@+id/texthead"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -43,14 +24,15 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:layout_below="@id/textHOD"
+        android:layout_below="@id/texthead"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-       >
+        tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/addfac"
-            android:layout_width="128dp"
+            android:id="@+id/notes"
+            android:layout_width="140dp"
             android:layout_height="128dp"
             android:layout_margin="8dp"
             android:layout_marginEnd="16dp"
@@ -69,7 +51,7 @@
                     android:id="@+id/image_view1"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/add_faculty"
+                    android:src="@drawable/baseline_picture_as_pdf_24"
                     app:layout_constraintBottom_toTopOf="@+id/textView1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -81,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Add Faculty"
+                    android:text="Notes"
                     android:textAllCaps="true"
                     android:textColor="@color/blue"
                     android:textSize="14sp"
@@ -97,8 +79,8 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/facCard"
-            android:layout_width="128dp"
+            android:id="@+id/notice"
+            android:layout_width="140dp"
             android:layout_height="128dp"
             android:layout_margin="8dp"
             android:layout_marginStart="16dp"
@@ -117,7 +99,7 @@
                     android:id="@+id/image_view20"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/deleter_image"
+                    android:src="@drawable/baseline_note_24"
                     app:layout_constraintBottom_toTopOf="@+id/textView20"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -129,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Delete Faculty"
+                    android:text="Notice"
                     android:textAllCaps="true"
                     android:textColor="@color/blue"
                     android:textSize="14sp"
@@ -145,7 +127,6 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -160,7 +141,7 @@
         >
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/contributeCard1"
+            android:id="@+id/timetable"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_margin="8dp"
@@ -192,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Upload Notice"
+                    android:text="Notice"
                     android:textAllCaps="true"
                     android:textColor="@color/blue"
                     android:textSize="14sp"
@@ -228,7 +209,7 @@
                     android:id="@+id/imagedelete"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/upload_file"
+                    android:src="@drawable/baseline_person_24"
                     app:layout_constraintBottom_toTopOf="@+id/deletetext"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -240,7 +221,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Upload TimeTable"
+                    android:text="Profile"
                     android:textAllCaps="true"
                     android:textColor="@color/blue"
                     android:textSize="14sp"

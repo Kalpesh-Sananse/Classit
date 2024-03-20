@@ -13,6 +13,24 @@
         android:theme="@style/Theme.Dept1"
         tools:targetApi="31">
         <activity
+            android:name=".studentPanel"
+            android:exported="false" />
+        <activity
+            android:name=".UploadPdf"
+            android:exported="false" />
+        <activity
+            android:name=".myNotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".create_subject"
+            android:exported="false" />
+        <activity
+            android:name=".notes_activity"
+            android:exported="false" />
+        <activity
+            android:name=".all_faculty"
+            android:exported="false" />
+        <activity
             android:name=".TeacherPanel"
             android:exported="false" />
         <activity

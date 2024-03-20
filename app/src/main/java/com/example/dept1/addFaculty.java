@@ -120,36 +120,21 @@ public class addFaculty extends AppCompatActivity {
                 } else {
                     progressBar.setVisibility(View.VISIBLE);
 
-                    if (facpass.equals(faccnfpass)) {
-                        Boolean checkuser = db.checkusername(facregno);
-                        if (checkuser == false) {
-                            Boolean insert = db.insertData(facname, facpass, facregno, facphone, facemail);
-                            if (insert == true) {
-                                Toast.makeText(addFaculty.this, "Registration Sucessfull", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                Toast.makeText(addFaculty.this, "Registration Failed", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(addFaculty.this, "User already exists", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(addFaculty.this, "passwords are not matching", Toast.LENGTH_SHORT).show();
-                    }
-                    // registerUser(facname, facemail,facphone,facpass,facregno);
+                    registerUser(facname, facemail, facphone, facpass, facregno);
                 }
 
             }
 
-            /*private void registerUser(String facname, String facemail, String facphone, String facpass, String facregno) {
+
+            private void registerUser(String facname, String facemail, String facphone, String facpass, String facregno) {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
-                ReadWriteFacDetails facwriteUserDetails = new ReadWriteFacDetails(facname,facphone,facregno,facpass);
+                ReadWriteFacDetails facwriteUserDetails = new ReadWriteFacDetails(facname, facphone, facregno, facpass);
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Faculty");
                 reference.child(facregno).setValue(facwriteUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(addFaculty.this, "User Registred Successfully", Toast.LENGTH_SHORT).show();
                             name.setText("");
                             email.setText("");
@@ -157,7 +142,7 @@ public class addFaculty extends AppCompatActivity {
                             cnfpass.setText("");
                             phone.setText("");
                             regno.setText("");
-                        }else{
+                        } else {
                             Toast.makeText(addFaculty.this, "User Registration failed,please try again", Toast.LENGTH_SHORT).show();
                         }
                         progressBar.setVisibility(View.GONE);
@@ -165,52 +150,12 @@ public class addFaculty extends AppCompatActivity {
                 });
 
 
-
-
-
-              /*  auth.createUserWithEmailAndPassword(facemail,facpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
-                            ReadWriteFacDetails facwriteUserDetails = new ReadWriteFacDetails(facname,facphone,facregno);
-
-                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Faculty");
-                               reference.child(facregno).setValue(facwriteUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(addFaculty.this, "User Registred Successfully", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        Toast.makeText(addFaculty.this, "User Registration failed,please try again", Toast.LENGTH_SHORT).show();
-                                    }
-                                    progressBar.setVisibility(View.GONE);
-                                }
-                            });
-
-
-
-                            //clearing the input fileds and showing as success message
-
-                            name.setText("");
-                            email.setText("");
-                            pass.setText("");
-                            cnfpass.setText("");
-                            phone.setText("");
-                            regno.setText("");
-                        }else{
-                            Toast.makeText(addFaculty.this, "User Registered failed , please try again", Toast.LENGTH_SHORT).show();
-
-                        }
-                        progressBar.setVisibility(View.GONE);
-
-
-                    }
-                });
-                */
-
+            }
         });
+    }
 }
 
 
-}
+
+
+
