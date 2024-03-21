@@ -82,6 +82,8 @@ public class notes_activity extends AppCompatActivity {
                                 startActivity(intent);
                                 break;
                             case 1:
+                                Intent intent1 = new Intent(notes_activity.this,UploadPdf.class);
+                                startActivity(intent1);
                                 Toast.makeText(notes_activity.this, "ok", Toast.LENGTH_SHORT).show();
                                 break;
                         }

@@ -31,7 +31,7 @@
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/notes"
+            android:id="@+id/Snotescard"
             android:layout_width="140dp"
             android:layout_height="128dp"
             android:layout_margin="8dp"

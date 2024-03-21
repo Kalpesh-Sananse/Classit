@@ -80,7 +80,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/facCard"
+            android:id="@+id/allstdcard"
             android:layout_width="140dp"
             android:layout_height="128dp"
             android:layout_margin="8dp"

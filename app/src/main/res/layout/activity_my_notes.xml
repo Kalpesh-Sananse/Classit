@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewhead"
-        android:id="@+id/recyclerviewmynotes"/>
+        android:id="@+id/myreyclerview"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/fab1"

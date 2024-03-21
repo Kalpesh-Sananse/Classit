@@ -69,17 +69,6 @@
             android:backgroundTint="@color/buttoncolor"
             android:textColor="@color/black" />
 
-        <Button
-            android:layout_width="700px"
-            android:layout_height="wrap_content"
-            android:id="@+id/signupbutton"
-            android:text="Sign Up"
-            android:textStyle="bold"
-            android:layout_margin="10sp"
-
-            android:textSize="18sp"
-            android:backgroundTint="@color/buttoncolor"
-            android:textColor="@color/black" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

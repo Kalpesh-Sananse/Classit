@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button login = findViewById(R.id.loginbutton);
-        Button signup = findViewById(R.id.signupbutton);
+
         textView = findViewById(R.id.textview3);
 
         textView.setText("Welcome to the Department of Information Technology ");
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
             }
         });
-        signup.setOnClickListener(new View.OnClickListener() {
+       /* signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Register_activity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 

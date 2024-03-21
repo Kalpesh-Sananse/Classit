@@ -46,5 +46,14 @@ public class TeacherPanel extends AppCompatActivity {
             }
         });
 
+        CardView cardView2 = findViewById(R.id.allstdcard);
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent1 = new Intent(TeacherPanel.this, allstudent.class);
+            startActivity(intent1);
+            }
+        });
+
     }
 }

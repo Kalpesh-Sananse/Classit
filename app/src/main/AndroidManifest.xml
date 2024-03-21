@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Dept1"
         tools:targetApi="31">
         <activity
+            android:name=".viewpdf"
+            android:exported="false" />
+        <activity
+            android:name=".allstudent"
+            android:exported="false" />
+        <activity
+            android:name=".allSub_activity"
+            android:exported="false" />
+        <activity
             android:name=".studentPanel"
             android:exported="false" />
         <activity

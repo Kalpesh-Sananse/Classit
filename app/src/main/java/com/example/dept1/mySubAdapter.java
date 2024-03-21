@@ -29,6 +29,7 @@ public class mySubAdapter extends RecyclerView.Adapter<mySubAdapter.MyViewHolder
         return new MyViewHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ReadWriteSubDetails readWriteSubDetails = list.get(position);

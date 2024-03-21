@@ -1,36 +1,39 @@
 package com.example.dept1;
 
 public class ReadWritePdfDetails {
-    public String Sname, Title ,url;
 
-    public String getSname() {
-        return Sname;
+    private String subjectName,PdfUrl ,pdfTitle;
+
+    public ReadWritePdfDetails() {
     }
 
-    public void setSname(String sname) {
-        Sname = sname;
+    public ReadWritePdfDetails(String subname, String title, String s) {
+        this.subjectName = subname;
+        this.pdfTitle = title;
+        this.PdfUrl = s;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getSubjectName() {
+        return subjectName;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
-    public String getUrl() {
-        return url;
+    public String getPdfUrl() {
+        return PdfUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPdfUrl(String pdfUrl) {
+        PdfUrl = pdfUrl;
     }
 
-    public ReadWritePdfDetails(String sname, String title, String url) {
-        Sname = sname;
-        Title = title;
-        this.url = url;
+    public String getPdfTitle() {
+        return pdfTitle;
+    }
+
+    public void setPdfTitle(String pdfTitle) {
+        this.pdfTitle = pdfTitle;
     }
 }
-

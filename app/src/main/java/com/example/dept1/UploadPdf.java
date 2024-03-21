@@ -93,7 +93,7 @@ public class UploadPdf extends AppCompatActivity {
 
         TextView pdfNametext;
         pdfNametext = findViewById(R.id.pdftextview);
-        tname = findViewById(R.id.Tname);
+       // tname = findViewById(R.id.Tname);
         titlePdf = findViewById(R.id.titlepdf);
 
         Button btn = findViewById(R.id.uploadpdf);
@@ -113,6 +113,7 @@ public class UploadPdf extends AppCompatActivity {
         });
 
         String subname = intent.getStringExtra("subname");
+        //String subname = "cn";
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +124,7 @@ public class UploadPdf extends AppCompatActivity {
 
              if (TextUtils.isEmpty(title)) {
                 Toast.makeText(UploadPdf.this, "Title is required", Toast.LENGTH_SHORT).show();
+
                 titlePdf.setError("title is required");
                 titlePdf.requestFocus();
             }else if(uri == null){
@@ -146,7 +148,7 @@ public class UploadPdf extends AppCompatActivity {
                     Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                     while(!uriTask.isComplete());
                     Uri uri1 = uriTask.getResult();
-                    uploadData(String.valueOf(uri1));
+                    uploadData(subname,title,String.valueOf(uri1));
                     }
 
 
@@ -161,16 +163,21 @@ public class UploadPdf extends AppCompatActivity {
                 });
             }
 
-            private void uploadData(String s) {
+
+
+            private void uploadData(String subname, String title, String s) {
                 String uniquekey = databaseReference.child("pdf").push().getKey();
 
+                ReadWritePdfDetails readWritePdfDetails = new ReadWritePdfDetails(subname,title,s);
+
+                /*
                 HashMap data = new HashMap();
 
                 data.put("pdfTitle",title);
                 data.put("PdfUrl",s);
 
-                data.put("subjectName",subname);
-                databaseReference.child("pdf").child(uniquekey).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                data.put("subjectName",subname);*/
+                databaseReference.child("pdf").child(uniquekey).setValue(readWritePdfDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         pd.dismiss();
@@ -178,7 +185,7 @@ public class UploadPdf extends AppCompatActivity {
                         TextView textView = findViewById(R.id.tview);
                         pdfNametext.setText("");
                         textView.setText("");
-                        tname.setText("");
+                        //tname.setText("");
                         titlePdf.setText("");
 
                     }
