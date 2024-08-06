@@ -63,7 +63,7 @@ public class create_subject extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(create_subject.this, "subject created successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(create_subject.this, "", Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(create_subject.this, "Subject not created", Toast.LENGTH_SHORT).show();
                         }
