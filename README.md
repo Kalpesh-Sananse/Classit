@@ -48,7 +48,8 @@ The primary goal of Classit is to help students stay organized by providing all 
 
 ## 📸 Screenshots
 
-> *(Add screenshots of the app interface: login screens, dashboard, notes view, etc.)*
+> <img width="824" alt="Image" src="https://github.com/user-attachments/assets/8d001b24-1a10-4ce7-b51e-9b8297ec0d50" />
+> 
 
 ---
 
