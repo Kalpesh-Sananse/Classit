@@ -48,8 +48,6 @@ The primary goal of Classit is to help students stay organized by providing all 
 
 ## 📸 Screenshots
 
-><h3>📸 Screenshots</h3>
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b99a1ac0-570a-4ede-b5f7-438392c5c876" alt="Screenshot 1" width="200"/>
   <img src="https://github.com/user-attachments/assets/0bd9ba7e-3114-4195-b368-571f0ace96e9" alt="Screenshot 2" width="200"/>
@@ -69,7 +67,7 @@ Android & Web Developer | Tech Club Lead | 5x Hackathon Winner
 
 ## 🤝 Contributions
 
-This app is currently tailored for the IT department at GHRCE&M Pune. If you'd like to contribute or extend the app for your institution or department, feel free to fork the repo and raise a pull request.
+This app is currently tailored for the IT department at GHRCEM Pune. If you'd like to contribute or extend the app for your institution or department, feel free to fork the repo and raise a pull request.
 
 ---
 
