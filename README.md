@@ -56,7 +56,7 @@ The primary goal of Classit is to help students stay organized by providing all 
 
 **Kalpesh Sanasne**  
 Android & Web Developer | Tech Club Lead | 5x Hackathon Winner  
-📧 [Email](mailto:sanansekalpesh9@gmail.com) • 🌐 [Portfolio]([https://your-portfolio-link.com](https://kalpesh-sananse.github.io/portfolio/)) • 🧑‍💼 [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/kalpesh-sananse-0550b4205/))
+📧 [Email](mailto:sanansekalpesh9@gmail.com) • 🌐 [Portfolio](https://kalpesh-sananse.github.io/portfolio/) • 🧑‍💼 [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/kalpesh-sananse-0550b4205/)
 
 ---
 
