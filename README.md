@@ -48,13 +48,7 @@ The primary goal of Classit is to help students stay organized by providing all 
 
 ## 📸 Screenshots
 
-> ![Image](https://github.com/user-attachments/assets/b99a1ac0-570a-4ede-b5f7-438392c5c876)
-
-![Image](https://github.com/user-attachments/assets/0bd9ba7e-3114-4195-b368-571f0ace96e9)
-
-![Image](https://github.com/user-attachments/assets/743769d8-bb87-4bc6-a818-e876e47cd482)
-
-![Image](https://github.com/user-attachments/assets/2491e413-15f5-4858-b06b-e851c9c689f9
+> ![Image](https://github.com/user-attachments/assets/b99a1ac0-570a-4ede-b5f7-438392c5c876) ![Image](https://github.com/user-attachments/assets/0bd9ba7e-3114-4195-b368-571f0ace96e9) ![Image](https://github.com/user-attachments/assets/743769d8-bb87-4bc6-a818-e876e47cd482) ![Image](https://github.com/user-attachments/assets/2491e413-15f5-4858-b06b-e851c9c689f9)
 
 ---
 
